@@ -1,0 +1,2 @@
+# IPFS-HUGO-BLOG
+IPFS_HUGO_Blog一款去中心化的，永不down机的静态Blog管理发布管理系统；静态Blog生成部分，基于hugo系统，增加了基于web的发布管理界面，方便用户发布管理自己的Blog文档；静态Blog页面存储到IPFS分布式网络节点上，用户可以使用基于IPFS网络协议的浏览器访问Blog内容；Blog内容一经发布，将永久存储于IPFS分布式网络节点，不属于任何平台；Blog系统基于Hugo，用户可以方便地更换自己喜欢的模板主题
