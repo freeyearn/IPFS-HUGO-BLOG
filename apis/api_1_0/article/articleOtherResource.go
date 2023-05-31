@@ -186,7 +186,6 @@ func ArticleUpdate(c *gin.Context) {
 		err := json.Unmarshal([]byte(Parser.Category), &category)
 		if err != nil {
 			parser.JsonInternalError(c, "category parse error", err)
-			return
 		}
 		categories := make([]string, len(category))
 		for idx, value := range category {

@@ -92,7 +92,7 @@ func CategoryPostHandler(c *gin.Context) {
 	}
 	CategoryService.SetCategoryId(categoryId)
 
-	err = CategoryService.Add(args)
+	err = CategoryService.AddCategory(args)
 	if err != nil {
 		parser.JsonDBError(c, "", err)
 		return

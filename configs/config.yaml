@@ -44,4 +44,4 @@ template:
   Blog: "assets/template.md"
 
 crontab:
-  spec: "0 */1 * * * ?"
+  spec: "0 */5 * * * ?"
