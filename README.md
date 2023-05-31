@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<h1 align="center"><img src=".github/images/ipfs.png" height="30" width="30"> IPFS_HUGO_Blog</h1>
-=======
 <h1 align="center"><img src=".github/images/ipfs.png" height="30" width="30"> IPFS_HUGO_BLOG</h1>
->>>>>>> main
 
 <div align="center">
 
