@@ -1,12 +1,12 @@
-<h1 align="center"><img src=".github/images/ipfs.png" height="30" width="30"> iDealAIHelper</h1>
+<h1 align="center"><img src=".github/images/ipfs.png" height="30" width="30"> IPFS_hugo_blog</h1>
 
 <div align="center">
 
 [English](README.md) / 简体中文
 
-One-Click to deploy well-designed ChatGPT web UI tool program.
+Quickly and freely deploy your IPFS-based Blog system to build an always-on article publishing website.
 
-快速免费部署你的基于IPFS的Blog系统，搭建永不down机的文章发布网站。
+快速免费部署你的基于IPFS的Blog系统，搭建永不down机的文章发布网站
 
 [Demo](http://libertypress.quwancode.com/) / [Issues](https://github.com/freeyearn/IPFS-HUGO-BLOG/issues) / [Buy Me a Coffee](https://www.buymeacoffee.com/iDealStudio)
 
