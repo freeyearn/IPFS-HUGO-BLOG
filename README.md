@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[English](README.md) / 简体中文
+[English](README.en.md) / 简体中文
 
 Quickly and freely deploy your IPFS-based Blog system to build an always-on article publishing website.
 
