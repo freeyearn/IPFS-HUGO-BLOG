@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <h1 align="center"><img src=".github/images/ipfs.png" height="30" width="30"> IPFS_HUGO_Blog</h1>
+=======
+<h1 align="center"><img src=".github/images/ipfs.png" height="30" width="30"> IPFS_HUGO_BLOG</h1>
+>>>>>>> main
 
 <div align="center">
 
@@ -46,14 +50,15 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
     ipfs:
       Url: http://ipfs:5001
     ```
-4. 修改配置文件`configs/database.yaml`，检查数据库配置
+4. 修改配置文件`configs/database.yaml`，检查数据库配置：
     ```
    mysql:
      database: hugo-blog
      username: root
-     password: admin123
+     password: admin123456
      dsn: root:admin123@tcp(ipfs-mysql:3306)/hugo-blog?charset=utf8&parseTime=True&loc=Local
    ```
+   说明：范例中使用的是云数据库产品（https://planetscale.com/）；可更换为自行安装部署的MySQL数据库；
 5. 运行`docker-compose up -d`启动服务
 6. 项目测试：见使用说明，项目基于ipfs默认网关来访问
    
@@ -69,17 +74,28 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
 2. 下载项目并进入项目目录
 3. 编译go程序，运行`go build`生成可执行文件，默认生成`IPFS-Blog-Hugo`可执行文件
 4. 安装ipfs结点，参考[https://blog.csdn.net/sgl520lxl/article/details/125932213]()
-5. 启动ipfs结点后，运行项目，先设置`IPFS-Blog-Hugo`文件的权限，`chmod 744 IPFS-Blog-Hugo`，随后运行`nohup ./IPFS-Blog-Hugo &`
-6. 项目测试：见使用说明，项目基于ipfs默认网关来访问
+5. 启动ipfs结点后，运行项目，先设置`IPFS-Blog-Hugo`文件的权限，`chmod 744 IPFS-Blog-Hugo`，随后运行：`nohup ./IPFS-Blog-Hugo &`
+6. 数据库配置：
+   将管理系统所需要的数据库，通过存放在“config/databse”目录下的sql脚本文件“ipfs-hugo-blog.sql”恢复；并在 `configs/database.yaml`中做好相应配置：
+   ```
+   mysql:
+     database: hugo-blog
+     username: root
+     password: admin123
+     dsn: your IP
+     port：your port
+   ```
+   说明：范例中使用的是云数据库产品（https://planetscale.com/）；可更换为自行安装部署的MySQL数据库；
+7. 项目测试：见使用说明，项目基于ipfs默认网关来访问
 
 
 #### 使用说明
 ##### 项目技术说明
-- 项目会有服务程序，对hugo对博客文档进行定时编译打包，生成public文件夹，在项目中存放在`resources/public`
-- 随后通过ipfs将该文件夹发布出去`ipfs add [dir]`，ipfs先在本地发布一份，随后可以通过默认网关`ipfs.io`访问该网页
-- 项目会生成运行日志，在logs文件夹下，查看日志可以找到发布的cid
+- 项目有一个服务程序，负责对HUGO博客文档进行定时编译打包，生成静态BLOG发布文件夹：public，位于：`resources/public`；
+- 通过ipfs将该文件夹发布出去`ipfs add [dir]`，ipfs先在本地发布一份，同时会将文档发布到默认网关`ipfs.io`；
+- 通过生成对运行日志，在logs文件夹下，可以查看到每次发布产生的cid；
 - 博客可以直接通过访问默认网关：`http://ipfs.io/ipfs/[cid]` 或`http://ipfs.io/ipns/[cid]`
-- 可以通过ipns链接来访问，具体操作见下文；
+- 也可以通过ipns链接来访问，具体操作配置见下文；
 
 ##### 查看博客
 1. 项目初始有默认的模板与文章，在项目启动时有定时任务来打包发布，想访问hugo发布的博客，需要通过ipfs访问。可以通过logs日志查看具体的CID；
