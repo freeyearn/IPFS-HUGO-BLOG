@@ -1,0 +1,11 @@
+[en]
+  title = "IPFS-HUGO-BLOG"
+  LanguageName = "English"
+  weight = 1
+
+[zh]
+  title = "IPFS-HUGO-BLOG"
+  LanguageName = "中文"
+  weight = 2
+
+  # tip: assign the default language the lowest Weight

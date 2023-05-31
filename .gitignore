@@ -1,0 +1,12 @@
+.idea/
+.scannerwork/
+admin-ui/node_modules/
+admin-ui/public/
+admin-ui/resources/_gen
+admin-ui/.babelrc
+admin-ui/webpack.config.js
+admin-ui/package-lock.json
+admin-ui/package.json
+resources/content/post/**/**/*.md
+resources/public/
+logs/

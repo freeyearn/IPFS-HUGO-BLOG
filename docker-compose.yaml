@@ -1,0 +1,64 @@
+version: '2.0'
+services:
+  ipfs-server:
+    container_name: ipfs
+    image: ipfs/go-ipfs
+    restart: always
+    ports:
+      - "8089:8080"
+      - "5001:5001"
+      - "4001:4001"
+    volumes:
+      - /var/www/ipfs/ipfs_node/ipfs_staging:/export
+      - /var/www/ipfs/ipfs_node/ipfs_data:/data/ipfs
+    networks:
+      - ipfs-blog
+  mysql:
+    container_name: ipfs-mysql
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    volumes:
+      # 挂挂载配置文件
+      #  - ./mysql/db/:/docker-entrypoint-initdb.d
+      # 挂挂载配置文件
+      - ./mysql/conf:/etc/mysql/conf.d
+      # 挂载日志
+      - ./mysql/logs:/logs
+      # 挂载数据
+      - ./mysql/data:/var/lib/mysql
+    command: [
+      'mysqld',
+      '--innodb-buffer-pool-size=80M',
+      '--character-set-server=utf8mb4',
+      '--collation-server=utf8mb4_unicode_ci',
+      '--default-time-zone=+8:00',
+      '--lower-case-table-names=1'
+    ]
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: hugo-blog
+      TZ: Asia/Shanghai
+    networks:
+      - ipfs-blog
+
+  ipfs-blog-hugo:
+    container_name: ipfs-blog-hugo
+    image: ipfs-blog-hugo
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - /var/www/IPFS-Blog-Hugo/configs:/var/www/IPFS-Blog-Hugo/configs
+      - /var/www/IPFS-Blog-Hugo/resources:/var/www/IPFS-Blog-Hugo/resources
+      - /var/www/IPFS-Blog-Hugo/logs:/var/www/IPFS-Blog-Hugo/logs
+    command: /bin/bash -c "sleep 15s && ./IPFS-Blog-Hugo"
+    depends_on:
+      - ipfs-server
+      - mysql
+    networks:
+      - ipfs-blog
+
+networks:
+  ipfs-blog:
+    driver: bridge
