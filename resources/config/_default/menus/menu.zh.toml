@@ -1,0 +1,30 @@
+[[main]]
+  name = "主页"
+  url = ""
+  weight = -110
+
+[[main]]
+  name = "关于"
+  url = "about/"
+  weight = -107
+
+# social menu links
+
+# [[social]]
+#   name = "rss"
+#   weight = 1
+#   url = "index.xml"
+
+# other supported social links
+# name = "youtube"
+# url = "https://www.youtube.com/#"
+# name = "facebook"
+# url = "https://facebook.com/#"
+# name = "instagram"
+# url = "https://instagram.com/#"
+# name = "stackoverflow"
+# url = "https://stackoverflow.com/#"
+# name = "gitlab"
+# url = "https://gitlab.com/#"
+# name = "discord"
+# url = "https://discord.gg/#"

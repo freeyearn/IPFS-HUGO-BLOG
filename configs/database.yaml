@@ -1,0 +1,5 @@
+mysql:
+  database: hugo-blog
+  username: v1dgbv7orlgb06q6pfuk
+  password: pscale_pw_KI1wntAyWtFrQIwGdQob9qma1zPoqdQFdV76Z4O0yhv
+  dsn: v1dgbv7orlgb06q6pfuk:pscale_pw_KI1wntAyWtFrQIwGdQob9qma1zPoqdQFdV76Z4O0yhv@tcp(aws.connect.psdb.cloud)/hugo_blog?tls=true&parseTime=true&charset=utf8mb4

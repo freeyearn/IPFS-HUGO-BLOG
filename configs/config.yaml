@@ -1,0 +1,47 @@
+log:
+  #  日志输出类型 File,CMD,ES
+  type: File
+  filepath: logs
+  filename: system.log
+system:
+  #  系统服务名
+  Name: IPFS-Blog-Hugo
+  #  环境
+  Mode: debug
+  #  秘钥
+  Secret: IPFS-Blog-Hugo
+  # rsa生成bit数量
+  RSABit: 1024
+  #  rsa私钥
+  RSAPrivate: configs/rsa/private.pem
+  #  rsa公钥
+  RSAPublic: configs/rsa/public.pem
+  #  过期时间（秒）
+  TokenExpireTime: 86400
+  RedisExpireTime: 3600
+  SessionExpireTime: 86400
+  PasswordExpireTime: 180
+  #  部署服务器ip
+  SysIP: 0.0.0.0
+  #  部署服务器端口
+  SysPort: 8000
+  #  使用mysql
+  UseMysql: true
+  #  使用redis
+  UseRedis: false
+security:
+  # ID后缀随机数数量
+  IDSuffixNum: 4
+blog:
+  # 博客项目地址
+  Dir: resources
+  ContentDir: content/post
+  Suffix: md
+# ipfs url
+ipfs:
+  Url: http://localhost:5001
+template:
+  Blog: "assets/template.md"
+
+crontab:
+  spec: "0 */1 * * * ?"
