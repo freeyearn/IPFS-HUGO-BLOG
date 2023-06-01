@@ -3,8 +3,10 @@ package services
 import (
 	"IPFS-Blog-Hugo/internal/dao"
 	"IPFS-Blog-Hugo/internal/database"
+	"IPFS-Blog-Hugo/utils/message"
 	"IPFS-Blog-Hugo/utils/parser"
 	"database/sql"
+	"encoding/json"
 )
 
 type ArticleService struct {
@@ -40,6 +42,31 @@ func (m *ArticleService) GetListByPage(p parser.ListParser) ([]ArticleService, i
 		if err != nil {
 			return results, 0, err
 		}
+		if result.Category != "" {
+			var category []string
+			err := json.Unmarshal([]byte(result.Category), &category)
+			if err != nil {
+				message.PrintErr("category parser err: ", err)
+				return nil, 0, err
+			}
+			categories := make([]string, len(category))
+			for idx, value := range category {
+				categoryService := CategoryService{}
+				err := categoryService.Get(map[string]any{
+					"category_id": value,
+				})
+				if err != nil {
+					message.PrintErr("category query err: id:", value, " err:", err)
+				}
+				categories[idx] = categoryService.GetCategoryName()
+			}
+			res, err := json.Marshal(categories)
+			if err != nil {
+				message.PrintErr("category marshal err: ", err)
+				return nil, 0, err
+			}
+			result.Category = string(res)
+		}
 		results = append(results, result)
 	}
 	return results, count, nil
@@ -58,6 +85,32 @@ func (m *ArticleService) GetList() ([]ArticleService, error) {
 		err = db.ScanRows(rows, &result)
 		if err != nil {
 			return results, err
+		}
+
+		if result.Category != "" {
+			var category []string
+			err := json.Unmarshal([]byte(result.Category), &category)
+			if err != nil {
+				message.PrintErr("category parser err: ", err)
+				return nil, err
+			}
+			categories := make([]string, len(category))
+			for idx, value := range category {
+				categoryService := CategoryService{}
+				err := categoryService.Get(map[string]any{
+					"category_id": value,
+				})
+				if err != nil {
+					message.PrintErr("category query err: id:", value, " err:", err)
+				}
+				categories[idx] = categoryService.GetCategoryName()
+			}
+			res, err := json.Marshal(category)
+			if err != nil {
+				message.PrintErr("category marshal err: ", err)
+				return nil, err
+			}
+			result.Category = string(res)
 		}
 		results = append(results, result)
 	}

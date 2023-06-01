@@ -71,7 +71,7 @@
             <el-form-item :label="addArticleParameters.category" prop="category">
               <el-select v-model="formLabelAlign.category" class="m-2" placeholder="Select">
                 <el-option v-for="item in categoryList" :key="item.category_id" :label="item.category_name"
-                  :value="item.category_name" />
+                  :value="item.category_id" />
               </el-select>
             </el-form-item>
           </el-form>

@@ -186,7 +186,6 @@ func ArticleUpdate(c *gin.Context) {
 		err := json.Unmarshal([]byte(Parser.Category), &category)
 		if err != nil {
 			parser.JsonInternalError(c, "category parse error", err)
-			return
 		}
 		categories := make([]string, len(category))
 		for idx, value := range category {
@@ -195,7 +194,7 @@ func ArticleUpdate(c *gin.Context) {
 				"category_id": value,
 			})
 			if err != nil {
-				message.PrintErr("category parse err:", err)
+				message.PrintErr("category query err: id:", value, " err:", err)
 			}
 			categories[idx] = categoryService.GetCategoryName()
 		}
@@ -430,7 +429,7 @@ func ArticleStatusUpdate(c *gin.Context) {
 
 		Blog.Categories = Blog.Categories + "]"
 	}
-	fmt.Println(Blog)
+
 	// generate blog
 	err = utils.CoverBlog(Blog, viper.GetString("template.Blog"), path)
 	if err != nil {

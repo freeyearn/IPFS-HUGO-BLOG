@@ -4,6 +4,7 @@ import (
 	"IPFS-Blog-Hugo/internal/dao"
 	"IPFS-Blog-Hugo/internal/database"
 	"IPFS-Blog-Hugo/utils/parser"
+	"errors"
 )
 
 type CategoryService struct {
@@ -48,4 +49,14 @@ func (m *CategoryService) GetCategories() ([]CategoryService, error) {
 		results = append(results, result)
 	}
 	return results, nil
+}
+
+func (m *CategoryService) AddCategory(args map[string]any) error {
+	db := database.GetMysqlClient()
+	args["is_deleted"] = 0
+	err := m.Get(args)
+	if err == nil {
+		return errors.New("数据已存在")
+	}
+	return db.Create(&m).Error
 }

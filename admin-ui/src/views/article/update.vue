@@ -68,7 +68,7 @@
             <el-form-item :label="addArticleParameters.category" prop="category">
               <el-select v-model="formLabelAlign.category" class="m-2" placeholder="Select">
                 <el-option v-for="item in categoryList" :key="item.category_id" :label="item.category_name"
-                  :value="item.category_name" />
+                  :value="item.category_id" />
               </el-select>
             </el-form-item>
 
@@ -192,6 +192,9 @@ const formLabelAlign = reactive({
 
 // 接口请求参数
 const saveInfo = (status: number) => {
+  if (isChangeCategory.label === formLabelAlign.category) {
+    formLabelAlign.category = isChangeCategory.value
+  }
   const category = []
   category[0] = String(formLabelAlign.category)
   const parms = {
@@ -221,7 +224,9 @@ const publicFun = (formEl: FormInstance | undefined) => {
   formEl.validate((valid, fields) => {
     if (valid) {
       const parms = saveInfo(0)
+
       loading.saveLoading = true
+      // console.log(parms)
       articlesApi.updataArticle(parms)
         .then((res: any) => {
           if (res.code === '2000') {
@@ -243,6 +248,7 @@ const publicFun = (formEl: FormInstance | undefined) => {
           });
         })
       // console.log(parms)
+      // loading.saveLoading = false
     } else {
       // console.log('error submit!', fields)
     }
@@ -280,6 +286,10 @@ const handleInputConfirm = () => {
 // 分类 变量定义
 const categoryApi = useCategoryApi()
 const categoryList = ref()
+const isChangeCategory = reactive({
+  label: '',
+  value: ''
+})
 // 分类列表 获取
 const getcategoryList = () => {
   const parms = {
@@ -289,6 +299,13 @@ const getcategoryList = () => {
     .then((res: any) => {
       if (res.code === '2000') {
         categoryList.value = res.data
+        for (let i = 0; i < categoryList.value.length; i++) {
+          if (categoryList.value[i].category_id === formLabelAlign.category[0]) {
+            formLabelAlign.category = categoryList.value[i].category_name
+            isChangeCategory.label = categoryList.value[i].category_name
+            isChangeCategory.value = categoryList.value[i].category_id
+          }
+        }
         // console.log(categoryList.value)
       }
     })
@@ -301,14 +318,14 @@ const getcategoryList = () => {
 }
 const route = useRoute()
 // 获取文章内容
-const getArticleContent = () => {
+const getArticleContent = async () => {
   const parms = {
     article_id: route.query.article_id
   }
   // console.log(parms.article_id)
   loading.vditorLoading = true
   loading.isDisabled = true
-  articlesApi.getArticle(parms)
+  await articlesApi.getArticle(parms)
     .then((res: any) => {
       if (res.code === '2000') {
         // console.log(res)
@@ -322,6 +339,7 @@ const getArticleContent = () => {
       }
       loading.vditorLoading = false
       loading.isDisabled = false
+      getcategoryList()
     })
     .catch((err: any) => {
       ElMessage({
@@ -334,7 +352,6 @@ const getArticleContent = () => {
 // 预加载
 onMounted(() => {
   getArticleContent()
-  getcategoryList()
   setVditor()
 })
 </script>
