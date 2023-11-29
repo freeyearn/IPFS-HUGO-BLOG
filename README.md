@@ -54,7 +54,10 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
      password: admin123456
      dsn: root:admin123@tcp(ipfs-mysql:3306)/hugo-blog?charset=utf8&parseTime=True&loc=Local
    ```
-   说明：范例中使用的是云数据库产品（https://planetscale.com/）；可更换为自行安装部署的MySQL数据库；
+   说明：
+   范例中使用的是云数据库产品（https://planetscale.com/）；
+   可更换为自行安装部署的MySQL数据库；
+
 5. 运行`docker-compose up -d`启动服务
 6. 项目测试：见使用说明，项目基于ipfs默认网关来访问
    
@@ -81,7 +84,10 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
      dsn: your IP
      port：your port
    ```
-   说明：范例中使用的是云数据库产品（https://planetscale.com/）；可更换为自行安装部署的MySQL数据库；
+   说明：
+   范例中使用的是云数据库产品（https://planetscale.com/）；
+   可更换为自行安装部署的MySQL数据库；
+   
 7. 项目测试：见使用说明，项目基于ipfs默认网关来访问
 
 
