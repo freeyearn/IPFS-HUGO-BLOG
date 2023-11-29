@@ -13,7 +13,7 @@ Quickly and freely deploy your IPFS-based Blog system to build an always-on arti
 [演示](http://libertypress.quwancode.com/) / [反馈](https://github.com/freeyearn/IPFS-HUGO-BLOG/issues) / [打赏开发者](.github/images/support.png)
 
 
-![cover](.github/images/cover.png)
+![cover](https://github.com/freeyearn/IPFS-HUGO-BLOG/blob/dev/.github/images/cover.png?raw=true)
 
 </div>
 
