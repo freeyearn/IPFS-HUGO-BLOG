@@ -1,4 +1,4 @@
-<h1 align="center"><img src="https://github.com/freeyearn/IPFS-HUGO-BLOG/blob/dev/.github/images/ipfs.png?raw=true" height="30" width="30"> IPFS_HUGO_BLOG</h1>
+<h1 align="center"><img src=".github/images/ipfs.png?raw=true" height="30" width="30"> IPFS_HUGO_BLOG</h1>
 
 <div align="center">
 
@@ -13,7 +13,7 @@ Quickly and freely deploy your IPFS-based Blog system to build an always-on arti
 [演示](http://libertypress.quwancode.com/) / [反馈](https://github.com/freeyearn/IPFS-HUGO-BLOG/issues) / [打赏开发者](.github/images/support.png)
 
 
-![cover](https://github.com/freeyearn/IPFS-HUGO-BLOG/blob/dev/.github/images/cover.png?raw=true)
+![cover](.github/images/cover.png?raw=true)
 
 </div>
 
