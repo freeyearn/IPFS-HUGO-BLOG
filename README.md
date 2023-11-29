@@ -1,4 +1,4 @@
-<h1 align="center"><img src=".github/images/ipfs.png" height="30" width="30"> IPFS_HUGO_BLOG</h1>
+<h1 align="center"><img src="https://github.com/freeyearn/IPFS-HUGO-BLOG/blob/dev/.github/images/ipfs.png?raw=true" height="30" width="30"> IPFS_HUGO_BLOG</h1>
 
 <div align="center">
 
