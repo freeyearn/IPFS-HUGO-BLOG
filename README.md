@@ -1,9 +1,6 @@
 
 <h1 align="center"><img src=".github/images/ipfs.png?raw=true" height="30" width="30"> IPFS_HUGO_BLOG</h1>
 
-<h1 align="center"><img src=".github/images/ipfs.png?raw=true" height="30" width="30"> IPFS_HUGO_BLOG</h1>
-
-
 <div align="center">
 
 [English](README.en.md) / 简体中文
