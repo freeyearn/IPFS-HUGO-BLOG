@@ -10,3 +10,4 @@ admin-ui/package.json
 resources/content/post/**/**/*.md
 resources/public/
 logs/
+resources/static/admin/static/
