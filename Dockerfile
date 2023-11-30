@@ -1,6 +1,6 @@
 FROM centos:7
 
-WORKDIR /var/www/IPFS-Blog-Hugo
+WORKDIR docker/deploy/IPFS-HUGO-BLOG
 
 COPY . .
 

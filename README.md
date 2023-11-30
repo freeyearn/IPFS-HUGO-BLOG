@@ -36,10 +36,22 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
 
 #### 安装教程
 #### 一、Docker方式快速部署
-1. 进入部署目标服务器，确保服务器上安装了docker以及docker-compose工具
-2. 下载项目并进入项目目录 
+1. 进入部署目标服务器，确保服务器上安装了docker以及docker-compose工具;
 
-   `git clone github地址`
+2. 在部署目标服务器的根目录创建相应的文件夹；
+'''
+  mkdir -p /docker/deploy
+  mkdir -p /docker/deploy
+'''
+ 
+  下载项目并进入项目目录 
+  '''
+  cd /docker/deploy
+  git clone https://github.com/freeyearn/IPFS-HUGO-BLOG.git
+  
+  ''' 
+
+
 3. 修改配置文件`configs/config.yaml`中的ipfs url设置，通过容器名访问
     ```
     # ipfs url
