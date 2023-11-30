@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <h1 align="center"><img src="https://github.com/freeyearn/IPFS-HUGO-BLOG/blob/dev/.github/images/ipfs.png?raw=true" height="30" width="30"> IPFS_HUGO_BLOG</h1>
+=======
+<h1 align="center"><img src=".github/images/ipfs.png?raw=true" height="30" width="30"> IPFS_HUGO_BLOG</h1>
+>>>>>>> dev
 
 <div align="center">
 
@@ -13,7 +17,7 @@ Quickly and freely deploy your IPFS-based Blog system to build an always-on arti
 [演示](http://libertypress.quwancode.com/) / [反馈](https://github.com/freeyearn/IPFS-HUGO-BLOG/issues) / [打赏开发者](.github/images/support.png)
 
 
-![cover](.github/images/cover.png)
+![cover](.github/images/cover.png?raw=true)
 
 </div>
 
@@ -36,17 +40,37 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
 
 #### 安装教程
 #### 一、Docker方式快速部署
-1. 进入部署目标服务器，确保服务器上安装了docker以及docker-compose工具
-2. 下载项目并进入项目目录 
+1. 进入部署目标服务器，确保服务器上安装了docker以及docker-compose工具;
 
-   `git clone github地址`
-3. 修改配置文件`configs/config.yaml`中的ipfs url设置，通过容器名访问
+2. 在部署目标服务器的根目录创建相应的文件夹；
+'''
+  mkdir -p /docker/deploy
+  mkdir -p /docker/deploy
+'''
+ 
+  下载项目并进入项目目录 
+  '''
+  cd /docker/deploy
+  git clone https://github.com/freeyearn/IPFS-HUGO-BLOG.git    
+  ''' 
+
+3. 进入代码目录：
+  cd /docker/deploy/IPFS-HUGO-BLOG
+  
+  构建应用的运行环境镜像
+  docker-compose build . 
+
+  运行启动服务
+  docker-compose up -d
+
+4. 修改配置文件`configs/config.yaml`中的ipfs url设置，通过容器名访问
     ```
     # ipfs url
     ipfs:
       Url: http://ipfs:5001
     ```
-4. 修改配置文件`configs/database.yaml`，检查数据库配置：
+5. 根据 docker-compose.yaml 参数，修改相应的配置；
+  修改配置文件`configs/database.yaml`，检查数据库配置：
     ```
    mysql:
      database: hugo-blog
@@ -55,11 +79,11 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
      dsn: root:admin123@tcp(ipfs-mysql:3306)/hugo-blog?charset=utf8&parseTime=True&loc=Local
    ```
    说明：
-   范例中使用的是云数据库产品（https://planetscale.com/）；
-   可更换为自行安装部署的MySQL数据库；
+    范例中使用的是云数据库产品（https://planetscale.com/）；
+    可更换为自行安装部署的MySQL数据库；
 
-5. 运行`docker-compose up -d`启动服务
-6. 项目测试：见使用说明，项目基于ipfs默认网关来访问
+6. 项目测试：
+   见使用说明，项目基于ipfs默认网关来访问
    
 
 #### 二、手动部署
