@@ -58,7 +58,7 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
   cd /docker/deploy/IPFS-HUGO-BLOG
   
   构建应用的运行环境镜像
-  docker-compose build . 
+  docker build . 
 
   运行启动服务
   docker-compose up -d
