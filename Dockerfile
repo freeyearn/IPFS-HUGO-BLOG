@@ -1,6 +1,6 @@
 FROM centos:7
 
-WORKDIR docker/deploy/IPFS-HUGO-BLOG
+WORKDIR /docker/deploy/IPFS-HUGO-BLOG
 
 COPY . .
 
@@ -9,8 +9,6 @@ ENV GO111MODULE=on \
     CGO_ENABLED=0 \
     GOOS=linux \
     GOARCH=amd64
-
-
 
 EXPOSE 8000
 

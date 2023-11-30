@@ -47,18 +47,26 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
   下载项目并进入项目目录 
   '''
   cd /docker/deploy
-  git clone https://github.com/freeyearn/IPFS-HUGO-BLOG.git
-  
+  git clone https://github.com/freeyearn/IPFS-HUGO-BLOG.git    
   ''' 
 
+3. 进入代码目录：
+  cd /docker/deploy/IPFS-HUGO-BLOG
+  
+  构建应用的运行环境镜像
+  docker-compose build . 
 
-3. 修改配置文件`configs/config.yaml`中的ipfs url设置，通过容器名访问
+  运行启动服务
+  docker-compose up -d
+
+4. 修改配置文件`configs/config.yaml`中的ipfs url设置，通过容器名访问
     ```
     # ipfs url
     ipfs:
       Url: http://ipfs:5001
     ```
-4. 修改配置文件`configs/database.yaml`，检查数据库配置：
+5. 根据 docker-compose.yaml 参数，修改相应的配置；
+  修改配置文件`configs/database.yaml`，检查数据库配置：
     ```
    mysql:
      database: hugo-blog
@@ -67,11 +75,11 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
      dsn: root:admin123@tcp(ipfs-mysql:3306)/hugo-blog?charset=utf8&parseTime=True&loc=Local
    ```
    说明：
-   范例中使用的是云数据库产品（https://planetscale.com/）；
-   可更换为自行安装部署的MySQL数据库；
+    范例中使用的是云数据库产品（https://planetscale.com/）；
+    可更换为自行安装部署的MySQL数据库；
 
-5. 运行`docker-compose up -d`启动服务
-6. 项目测试：见使用说明，项目基于ipfs默认网关来访问
+6. 项目测试：
+   见使用说明，项目基于ipfs默认网关来访问
    
 
 #### 二、手动部署
