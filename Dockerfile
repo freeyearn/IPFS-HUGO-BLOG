@@ -1,15 +1,23 @@
-FROM centos:7
+# select image
+FROM golang:alpine
 
-WORKDIR /docker/deploy/IPFS-HUGO-BLOG
+# set environment
+ENV GOPROXY https://goproxy.cn,direct
 
-COPY . .
+# create workdir
+RUN mkdir /app 
 
-ENV GO111MODULE=on \
-    GOPROXY=https://goproxy.cn,direct \
-    CGO_ENABLED=0 \
-    GOOS=linux \
-    GOARCH=amd64
+# copy the source code to workdir
+ADD . /app/
 
+# change the workdir
+WORKDIR /app
+
+# build the binary
+RUN go build -o IPFS-Blog-Hugo .
+
+# expose the port
 EXPOSE 8000
 
+# run the binary
 CMD ["./IPFS-Blog-Hugo"]
