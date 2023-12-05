@@ -80,7 +80,15 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
     可更换为自行安装部署的MySQL数据库；
 
 6. 项目测试：
-   见使用说明，项目基于ipfs默认网关来访问
+   A 本地方式访问：
+   配置Nginx
+
+
+
+   B IPFS网关方式访问
+
+
+  
    
 
 #### 二、手动部署
@@ -133,7 +141,11 @@ Blog管理发布系统采用前后端分离模式，前端程序编译后也可�
    Published to k51qzi5uqu5dkb2xif9u7uithy4a5j9nua2aofhw7aj2k1f8ugk3cq0l18313s: /ipfs/QmTYbcVWwC418hGTzbY2nQu6ZYSXwon4r5YCddZv9JjhhN
    ```
 
-4. 获取到ipns地址：`k51qzi5uqu5dkb2xif9u7uithy4a5j9nua2aofhw7aj2k1f8ugk3cq0l18313s`，在Brave浏览器中可以通过ipns访问：`ipns://k51qzi5uqu5dkb2xif9u7uithy4a5j9nua2aofhw7aj2k1f8ugk3cq0l18313s/`；对应的博客管理后台为：`ipns://k51qzi5uqu5dkb2xif9u7uithy4a5j9nua2aofhw7aj2k1f8ugk3cq0l18313s/admin/`
+4. 获取到ipns地址：`k51qzi5uqu5dkb2xif9u7uithy4a5j9nua2aofhw7aj2k1f8ugk3cq0l18313s`；
+
+在Brave浏览器中可以通过ipns访问：`ipns://k51qzi5uqu5dkb2xif9u7uithy4a5j9nua2aofhw7aj2k1f8ugk3cq0l18313s/`；
+
+对应的博客管理后台为：`ipns://k51qzi5uqu5dkb2xif9u7uithy4a5j9nua2aofhw7aj2k1f8ugk3cq0l18313s/admin/`
 
 5. 可以通过ipfs网关访问：`http://ipfs.io/ipns/k51qzi5uqu5dkb2xif9u7uithy4a5j9nua2aofhw7aj2k1f8ugk3cq0l18313s`
 

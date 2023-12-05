@@ -1,17 +1,15 @@
+
 # select image
 FROM golang:alpine
 
 # set environment
 ENV GOPROXY https://goproxy.cn,direct
 
-# create workdir
-RUN mkdir /app 
+# set environment
+WORKDIR /docker/deploy/IPFS-Blog-Hugo
 
 # copy the source code to workdir
-ADD . /app/
-
-# change the workdir
-WORKDIR /app
+COPY . .
 
 # build the binary
 RUN go build -o IPFS-Blog-Hugo .

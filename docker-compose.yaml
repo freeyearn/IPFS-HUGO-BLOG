@@ -9,8 +9,8 @@ services:
       - "5001:5001"
       - "4001:4001"
     volumes:
-      - /var/www/ipfs/ipfs_node/ipfs_staging:/export
-      - /var/www/ipfs/ipfs_node/ipfs_data:/data/ipfs
+      - /docker/deploy/ipfs/ipfs_node/ipfs_staging:/export
+      - /docker/deploy/ipfs/ipfs_node/ipfs_data:/data/ipfs
     networks:
       - ipfs-blog
   mysql:
@@ -49,10 +49,10 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - /var/www/IPFS-Blog-Hugo/configs:/var/www/IPFS-Blog-Hugo/configs
-      - /var/www/IPFS-Blog-Hugo/resources:/var/www/IPFS-Blog-Hugo/resources
-      - /var/www/IPFS-Blog-Hugo/logs:/var/www/IPFS-Blog-Hugo/logs
-    command: /bin/bash -c "sleep 15s && ./IPFS-Blog-Hugo"
+      - /docker/deploy/IPFS-Blog-Hugo/configs:/docker/deploy/IPFS-Blog-Hugo/configs
+      - /docker/deploy/IPFS-Blog-Hugo/resources:/docker/deploy/IPFS-Blog-Hugo/resources
+      - /docker/deploy/IPFS-Blog-Hugo/logs:/docker/deploy/IPFS-Blog-Hugo/logs
+    command: /bin/sh -c "sleep 15s && ./IPFS-Blog-Hugo"
     depends_on:
       - ipfs-server
       - mysql
